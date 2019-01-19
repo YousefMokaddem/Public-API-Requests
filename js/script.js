@@ -54,11 +54,12 @@ function createModalWindow(e){
 }
 //modal button event handlers
 function attachModalHandlers(index){
-    //remove the modal view and re-attach the gallery's click handler
+    //remove the modal view and re-attach the gallery's click handler and search handler
     document.getElementById('modal-close-btn').addEventListener('click', function(e){
         const container = document.getElementsByClassName('modal-container')[0];
         container.parentNode.removeChild(container);
         document.getElementById('gallery').addEventListener('click', createModalWindow);
+        document.getElementsByTagName('form')[0].addEventListener('submit', searchHandler);
     });
     //remove the modal view, create a new modal view using the decremented index and add modal button handlers again
     document.getElementById('modal-prev').addEventListener('click', function(e){
@@ -109,7 +110,9 @@ document.getElementsByClassName('search-container')[0].innerHTML =
         <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
     </form>`;
 //handle search
-document.getElementsByTagName('form')[0].addEventListener('submit', function(e){
+document.getElementsByTagName('form')[0].addEventListener('submit', searchHandler);
+
+function searchHandler(e){
     e.preventDefault();
     //get the value from the input field
     const searchString = document.getElementById('search-input').value;
@@ -123,4 +126,4 @@ document.getElementsByTagName('form')[0].addEventListener('submit', function(e){
             cards[i].style.display = 'inherit';
         }
     }
-});
+}

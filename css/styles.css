@@ -94,6 +94,10 @@ header h1 {
     overflow: hidden;
 }
 
+.card:hover{
+    box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.75); 
+}
+
 .card-img {
     width: 95px;
     margin: 10px 15px auto 10px;
@@ -228,6 +232,7 @@ header h1 {
 
     .header-text-container {
         text-align: left;
+        border-bottom: 2px solid rgba(50, 50, 50, 0.9);
     }
 
     .search-container {
